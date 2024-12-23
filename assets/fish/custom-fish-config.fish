@@ -10,7 +10,7 @@ function fish_prompt
 		set last_pwd $PWD
 	end
 
-	set_color brblack
+	set_color -d white
 	if test (id -u) -eq 0
 		echo 'Γ '
 	else
