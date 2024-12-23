@@ -1,0 +1,119 @@
+{ pkgs, ... }:
+
+let
+    eyeScript = pkgs.writeShellScriptBin "eye-script" ''
+sec="$(date +"%-S")"
+if ((sec % 30 == 0)); then
+    echo "             "
+else
+    echo "             "
+fi
+    '';
+in {
+    programs.waybar = {
+        enable = true;
+
+        settings = {
+            mainBar = {
+                layer = "top";
+                position = "top";
+
+                modules-left = [
+                    "sway/workspaces"
+                ];
+                modules-center = [
+                    "clock"
+                    "custom/eye"
+                    "privacy"
+                ];
+                modules-right = [
+                    "mpris"
+                    "network"
+                    "bluetooth"
+                    "pulseaudio"
+                    "battery"
+                ];
+
+                "sway/workspaces" = {
+                    persistent-workspaces = {
+                        "1" = [];
+                        "2" = [];
+                        "3" = [];
+                        "4" = [];
+                        "5" = [];
+                    };
+                    format = "{icon}";
+                    format-icons = {
+                        "1" = "";
+                        "2" = "󰈹";
+                        "3" = "3";
+                        "4" = "4";
+                        "5" = "5";
+                        "6" = "6";
+                        "7" = "7";
+                        "8" = "8";
+                        "9" = "9";
+                    };
+                };
+
+                clock = {
+                    # format = "{:%R 󰸗 %b %e}";
+                    format = "{:%R}";
+                };
+
+                "custom/eye" = {
+                    interval = 1;
+                    exec = "${eyeScript}/bin/eye-script";
+                };
+
+                privacy = {
+                    icon-size = 12;
+                };
+
+                network = {
+                    format = "󰖪";
+                    format-wifi = "󰖩 {ipaddr}/{cidr}";
+                    format-ethernet = "󰛳 {ipaddr}/{cidr}";
+                    tooltip-format = " ";
+                    tooltip-format-wifi = "{essid} ({signalStrength}%)";
+                    tooltip-format-ethernet = "{ifname}";
+                };
+
+                bluetooth = {
+                    format = "";
+                    format-off = "󰂲";
+                    format-disabled = "󰂲";
+                    tooltip-format-connected = "{device_enumerate}";
+                    tooltip-format-enumerate-connected = "{device_alias} connected";
+                };
+
+                pulseaudio = {
+                    format = "{icon}";
+                    format-muted = "󰝟";
+                    format-icons = {
+                        default = [ "󰕿" "󰖀" "󰕾" "󰕾" "󰕾" ];
+                    };
+                    tooltip-format = "{desc} ({volume}%)";
+                };
+
+                battery = {
+                    interval = 6;
+                    format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+                    format = "{icon} {capacity}%";
+                    format-charging = "{icon}󱐋 {capacity}%";
+                    states = {
+                        warning = 10;
+                        critical = 4;
+                    };
+                };
+            };
+        };
+
+        style = ./waybar-style.css;
+    };
+
+    wayland.windowManager.sway.config.bars = [{
+        command = "waybar";
+    }];
+}
+

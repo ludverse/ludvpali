@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    min-width: 0;
+    font-family: "Arimo Nerd Font", sans-serif;
+    font-weight: 700;
+    color: #c0c0c0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0);
+}
+
+/* #workspaces button.visible { */
+/*     padding-left: 12px; */
+/*     padding-right: 12px; */
+/*     background: linear-gradient(45deg, rgba(179, 75, 41, 1) 0%, rgba(179, 115, 41, 1) 100%); */
+/* } */
+/**/
+.modules-left, .modules-right {
+    margin: 8px 6px 0;
+}
+
+#workspaces button {
+    margin: 0 2px;
+    padding: 2px 5px;
+    background: #e8e8e8;
+    transition: 0ms;
+    border-radius: 400px;
+    text-shadow: none;
+}
+
+#workspaces button * {
+    color: #000000;
+}
+
+#workspaces button.visible {
+    padding: 0 13px;
+    background: linear-gradient(45deg, rgba(179, 75, 41, 1) 0%, rgba(179, 115, 41, 1) 100%);
+    border-radius: 4px;
+}
+
+#workspaces button.visible * {
+    color: #ffffff;
+}
+
+#clock {
+    margin: 0 4px;
+    background: transparent;
+}
+
+#custom-eye {
+    margin: 0 4px;
+    padding: 8px;
+    min-height: 18px;
+    min-width: 72px;
+    border-radius: 0 0 12px 12px;
+    background: #000000;
+}
+
+window#waybar.battery-critical #custom-eye {
+    background: #fc5c65;
+}
+
+#privacy {
+    margin: 8px 4px 0;
+    padding: 4px 8px;
+    background: #000000;
+    border-radius: 400px;
+}
+
+#privacy-item {
+    margin: 0 1px;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+#privacy-item.screenshare {
+    background: #fc5c65;
+}
+
+#privacy-item.audio-in {
+    background: #fd9644;
+}
+
+#bluetooth, #network, #backlight, #pulseaudio, #battery {
+    margin: 0 2px;
+    padding: 2px 8px;
+    color: #000000;
+    background: #e8e8e8;
+    border-radius: 400px;
+}
+
+#network {
+    /* background: rgba(69, 170, 242, 0.15); */
+}
+
+#network.disconnected {
+    padding-right: 16px;
+}
+
+#network.disconnected, #bluetooth.off, #pulseaudio.muted {
+    color: #fc5c65;
+}
+
+#bluetooth {
+    margin-right: 0;
+    padding-right: 4px;
+    border-radius: 400px 0 0 400px;
+}
+
+#bluetooth.connected {
+    color: #4b7bec;
+}
+
+#pulseaudio {
+    margin-left: 0;
+    padding-left: 4px;
+    border-radius: 0 400px 400px 0;
+}
+
+#battery {
+    /* background: rgba(38, 222, 129, 0.15); */
+}
+
+#battery.critical {
+    background: #fc5c65;
+}
+
+#battery.charging:not(.critical) {
+    color: #26de81;
+}

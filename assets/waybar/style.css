@@ -1,0 +1,169 @@
+* {
+	margin: 0;
+	padding: 0;
+	min-height: 0;
+	min-width: 0;
+	border: none;
+}
+
+#waybar {
+	/* font-family: "Arimo Nerd Font", sans-serif; */
+	/* font-weight: 700; */
+	font-family: "FiraMono Nerd Font", monospace;
+	font-weight: 400;
+	color: #c0c0c0;
+	background: #212121;
+}
+
+.modules-left {
+	margin: 0 8px;
+}
+
+#workspaces button,
+#privacy-item,
+#network,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#language,
+#battery,
+#clock {
+	margin: 0px 2px 0;
+	padding: 2px 4px;
+	background: #000000;
+	border: 0;
+	/* border: solid #404040; */
+	/* border-width: 0 1px; */
+	border-radius: 0px;
+}
+
+#workspaces button,
+#mode,
+#network {
+}
+
+#workspaces button {
+	padding: 2px 8px;
+	color: #c0c0c0;
+}
+
+#workspaces button.focused {
+	color: #ffffff;
+	background: #5f676a;
+	border-color: #333333;
+}
+
+#workspaces button.current_output.focused {
+	color: #000000;
+	background: #2ecc71;
+	/* border-color: #4c7899; */
+}
+
+/* browser */
+/*#workspaces button#sway-workspace-110 {*/
+/*	padding-left: 15px;*/
+/*	padding-right: 17px;*/
+/*}*/
+/**/
+/* chat, anki and virt */
+/*#workspaces button#sway-workspace-150,*/
+/*#workspaces button#sway-workspace-160,*/
+/*#workspaces button#sway-workspace-190 {*/
+/*	padding-left: 14px;*/
+/*	padding-right: 18px;*/
+/*}*/
+/**/
+/* tor, utils, game and watch */
+/*#workspaces button#sway-workspace-120,*/
+/*#workspaces button#sway-workspace-130,*/
+/*#workspaces button#sway-workspace-170,*/
+/*#workspaces button#sway-workspace-180 {*/
+/*	padding-left: 13px;*/
+/*	padding-right: 19px;*/
+/*}*/
+/**/
+/* dev */
+/*#workspaces button#sway-workspace-105 {*/
+/*	padding-left: 12px;*/
+/*	padding-right: 20px;*/
+/*}*/
+/**/
+.modules-right {
+	margin: 0 2px;
+}
+
+#privacy {
+	margin: 0 4px;
+}
+
+#privacy-item {
+	margin: 8px 0 0;
+	color: #ffffff;
+}
+
+#privacy-item.screenshare {
+	background: #fc5c65;
+}
+
+#privacy-item.audio-in {
+	background: #fd9644;
+}
+
+#bluetooth,
+#pulseaudio,
+#backlight {
+	font-family: "Arimo Nerd Font", sans-serif;
+	font-weight: 700;
+}
+
+#bluetooth {
+	margin-right: 0;
+	padding-right: 0;
+	/* border-radius: 8px 0 0 8px; */
+	border-right: 0;
+}
+
+#bluetooth.connected {
+	color: #4b7bec;
+}
+
+#pulseaudio {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	/* border-radius: 0; */
+	border-left: 0;
+	border-right: 0;
+}
+
+#backlight {
+	margin-left: 0;
+	padding-left: 4px;
+	/* border-radius: 0 8px 8px 0; */
+	border-left: 0;
+}
+
+#battery.critical.discharging {
+	color: #ffffff;
+	background: #fc5c65;
+	animation: hi 500ms infinite;
+}
+
+#battery.charging {
+	color: #26de81;
+}
+
+@keyframes hi {
+	0% {
+		color: transparent;
+	}
+
+	49.99% {
+		color: transparent;
+	}
+
+	50% {
+		color: #ffffff;
+	}
+}

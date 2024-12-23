@@ -1,0 +1,102 @@
+{
+    "layer": "bottom",
+    "position": "top",
+
+    "modules-left": [
+        "sway/workspaces",
+		"sway/mode"
+    ],
+    "modules-center": [
+        "clock",
+        "privacy"
+    ],
+    "modules-right": [
+        "network",
+        "sway/language",
+        "bluetooth",
+        "pulseaudio",
+        "backlight",
+        "battery"
+    ],
+
+    "sway/window": {
+        "icon": true,
+        "icon-size": 16
+    },
+
+    "sway/workspaces": {
+		"all-outputs": true,
+        "persistent-workspaces": {
+        },
+		"disable-scroll": true,
+		"disable-click": true,
+        "format": "{name}:{icon}",
+        "format-icons": {
+             "1": "term",
+             "2": "browse",
+			 "3": "fun",
+             "4": "work",
+             "5": "sys",
+             "6": "chat",
+             "7": "obs",
+             "8": "vm"
+		}
+    },
+
+    "clock": {
+        // format": "{:%R 󰸗 %b %e}"
+        "format": "{:%Y-%m-%d_%H:%M:%S}",
+        "interval": 1
+    },
+
+    "privacy": {
+        "icon-size": 12
+    },
+
+    "network": {
+        "format": "󰖪",
+        "format-wifi": "󰖩 {ipaddr}/{cidr} @ {frequency}MHz",
+        "format-ethernet": "󰛳 {ipaddr}/{cidr}",
+        "tooltip-format": " ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}"
+    },
+
+    "sway/language": {
+        "format": " {}",
+    	"on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} connected"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": [ "󰖀", "󰕾", "󰕾", "󰕾", "󰕾", "󰕾" ]
+        },
+        "tooltip-format": "{desc} ({volume}%)"
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": [ "", "󰃞", "󰃞", "󰃠", "󰃠" ]
+    },
+
+    "battery": {
+        "interval": 4,
+        "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon} {capacity}%",
+        "states": {
+            "critical": 4
+        }
+    }
+}
+
