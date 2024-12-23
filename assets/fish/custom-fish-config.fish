@@ -11,7 +11,7 @@ function fish_prompt
 	end
 
 	set_color brblack
-	if fish_is_root_user
+	if test $EUID -eq 0
 		echo 'Γ '
 	else
 		echo 'λ '
