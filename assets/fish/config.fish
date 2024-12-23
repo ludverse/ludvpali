@@ -1,6 +1,3 @@
-# managed by systemforge
-# DO NOT EDIT. YOUR CHANGES WILL BE LOST
-
 alias ..='z ..'
 alias start='. ~/.config/paliforge/start-sway.fish'
 alias reboot='systemctl reboot'
@@ -22,7 +19,7 @@ set -gx LC_ALL 'en_GB.UTF-8'
 
 zoxide init fish | source
 
-source ~/.config/paliforge/custom-fish-config.fish
+source ~/.config/fish/custom-fish-config.fish
 
 set -gx PATH $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /home/ludv/coding/flutter/flutter $PATH
 

@@ -19,5 +19,6 @@ def copy(assets_src: str, dest: str):
 
 
 def clone_repo(repo_url: str, dest: str):
+    dest = path.expanduser(dest)
     if not path.exists(dest):
         Repo.clone_from(repo_url, dest)
